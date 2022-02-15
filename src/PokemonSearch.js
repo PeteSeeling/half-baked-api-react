@@ -15,7 +15,7 @@ export default function PokemonSearch() {
     
     setLoading(true);
     
-    const response = await fetch(`./netlify/functions/pokemon?search=${search}`);
+    const response = await fetch(`/.netlify/functions/pokemon?search=${search}`);
     const json = await response.json();
     setPokemon(json);
     setLoading(false);
@@ -39,7 +39,9 @@ export default function PokemonSearch() {
         <button>Get pokemon</button>
       </form>
       
-      {/* Make a PokemonList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
+      <PokemonList pokemon={pokemon} />
+      
+  
     </section>
   );
 
