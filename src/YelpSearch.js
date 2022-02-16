@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { search } from 'superagent';
 import YelpList from './YelpList';
+import { Spinner } from './Spinner';
 
 export default function YelpSearch() {
     // you'll need to track your yelp search results, the loading state, and a form field for location with a default value.
   const [businesses, setBusinesses] = useState([]);
   const [search, setSearch] = useState('Detroit');
-  const [loading, setLoading] = useState('false');
+  const [loading, setLoading] = useState(false);
 
   async function handleYelpSubmit(e) {
     e.preventDefault();
 
     setLoading(true);
+    
 
     const response = await fetch(`/.netlify/functions/yelp?search=${search}`);
     const json = await response.json();
@@ -36,7 +38,12 @@ export default function YelpSearch() {
         {/* add inputs/labels for city name, state, and country, using all the things we need with react forms. Don't forget to use the value property to sync these up with the default values in react state */}
         <button>Search yelp</button>
       </form>
-      <YelpList businesses={businesses} />
+      {
+        loading
+          ? <Spinner />
+          : <YelpList businesses={businesses} />
+    
+      }
       {/* Make a BusinessesList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
     </section>
   );

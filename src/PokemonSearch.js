@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import PokemonList from './pokemonList';
+import { Spinner } from './Spinner';
+
 
 
 
 export default function PokemonSearch() {
-  const [loading, setLoading] = useState('false');
+  
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('pikachu');
   const [pokemon, setPokemon] = useState([]);
+ 
  
       // you'll need to track your pokemon search results, the loading state, and one form field: name. For this form field, set a real initial values (like 'pikachu') so the form populates with a default value.
   
@@ -39,7 +43,13 @@ export default function PokemonSearch() {
         <button>Get pokemon</button>
       </form>
       
-      <PokemonList pokemon={pokemon} />
+      {
+        loading
+          ? <Spinner />
+          : <PokemonList pokemon={pokemon} />
+       
+      }
+    
       
   
     </section>
