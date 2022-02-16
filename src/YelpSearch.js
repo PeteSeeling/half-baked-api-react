@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { search } from 'superagent';
 
 export default function YelpSearch() {
     // you'll need to track your yelp search results, the loading state, and a form field for location with a default value.
+  const [businesses, setBusinesses] = useState([]);
+  const [search, setSearch] = useState('Detroit')
 
   async function handleYelpSubmit(e) {
     e.preventDefault();
