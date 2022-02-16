@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
     });
 
     const json = await response.json();
-    console.log('---------------', process.env.React_APP_Yelp_Key);
+   
     // here is an example from the netlify docs:
     // https://functions.netlify.com/playground/#hello%2C-%7Bname%7D 
 
