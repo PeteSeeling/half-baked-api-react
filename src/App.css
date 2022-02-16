@@ -71,3 +71,36 @@ section li {
 label {
   display: block;
 }
+.pokemon-column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pokemon-item{
+  height:150px;
+  width:100px;
+  margin:5px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.image{
+  height:100px;
+  justify-content: center;
+}
+.yelp-column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+
+}
+.yelp-item{
+  height:200px;
+  width:100px;
+  margin:20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
