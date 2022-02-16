@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { search } from 'superagent';
+import YelpList from './YelpList';
 
 export default function YelpSearch() {
     // you'll need to track your yelp search results, the loading state, and a form field for location with a default value.
@@ -13,7 +14,7 @@ export default function YelpSearch() {
     setLoading(true);
 
     const response = await fetch();
-    const json = await response.json();
+    const json = await response.json(`/.netlify/functions/yelp?search=${search}`);
     setBusinesses(json);
     setLoading(false);
   
@@ -35,6 +36,7 @@ export default function YelpSearch() {
         {/* add inputs/labels for city name, state, and country, using all the things we need with react forms. Don't forget to use the value property to sync these up with the default values in react state */}
         <button>Search yelp</button>
       </form>
+      <YelpList businesses={businesses} />
       {/* Make a BusinessesList component to import and use here. Use a ternery to display a loading spinner (make a <Spinner /> component for this) if the data is still loading. */}
     </section>
   );
