@@ -13,8 +13,8 @@ export default function YelpSearch() {
 
     setLoading(true);
 
-    const response = await fetch();
-    const json = await response.json(`/.netlify/functions/yelp?search=${search}`);
+    const response = await fetch(`/.netlify/functions/yelp?search=${search}`);
+    const json = await response.json();
     setBusinesses(json);
     setLoading(false);
   
@@ -30,7 +30,7 @@ export default function YelpSearch() {
       <form onSubmit={handleYelpSubmit}>
         Search yelp for a city
         <label>
-          <input value='detroit or usa' onChange={(e => setSearch(e.target.value))} />
+          <input placeholder='detroit or usa' onChange={(e => setSearch(e.target.value))} />
         </label>
       
         {/* add inputs/labels for city name, state, and country, using all the things we need with react forms. Don't forget to use the value property to sync these up with the default values in react state */}
