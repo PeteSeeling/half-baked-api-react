@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { search } from 'superagent';
 import YelpList from './YelpList';
 import { Spinner } from './Spinner';
 
